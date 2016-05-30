@@ -2,8 +2,9 @@ serverinfo {
 	name = "{{ ansible_fqdn }}";
 	description = "ircd-hybrid 7.2-debian";
 	network_name = "{{ ircd_network_name }}";
-	network_desc = "i am a network short and stout";
+	network_desc = "{{ ircd_network_desc }}";
 	sid = "00A";
+	max_clients = "{{ ircd_max_clients }}";
 };
 
 admin {
@@ -12,8 +13,13 @@ admin {
 	email = "{{ ircd_admin_email }}";
 };
 
+logging {
+	log_level = L_INFO; "{{ irc_log_level }}"
+};
+
 listen {
-	port = {{ ircd_port }};
+       host = "{{ ircd_host }}"
+       port = "{{ ircd_port }}";
 };
 
 /* auth {}: allow users to connect to the ircd (OLD I:) */
@@ -45,9 +51,15 @@ shared {
 	name = "hybrid7.debian.local";
 	user = "root@localhost";
 };
+exempt {
+       ip = "192.168.0.0/16";
+};
+
+channel {
+	oper_pass_resv = yes;
+};
 
 general {
-	oper_pass_resv = yes;
         default_floodcount = 10;
 	failed_oper_notice = yes;
 	dots_in_ident=2;
