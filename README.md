@@ -38,6 +38,9 @@ ircd_port: 6667
 # A string containing the IRC network name to which the server belongs, eg 'Interlinks IRC'
 ircd_network_name: Local Network
 
+# Description
+ircd_network_desc: Server intern
+
 # A string containing a description of, geographically, where the server resides, eg 'San Francisco, California, USA'
 ircd_geo_location: Earth
 ```
@@ -60,11 +63,12 @@ Example Playbook
       vars:
         ircd_motd: Confucius say, if you think you will sum up your whole life on this little bit of paper, you are crazy.
         ircd_network_name: Local Network
-        ircd_port: 6667
+	ircd_network_desc: Intern Server
+	ircd_port: 6667
         ircd_admin_name: Admin Smith
         ircd_admin_email: admin@local.host
         ircd_geo_location: Earth
-
+	
       pre_tasks:
         - name: update apt cache
           apt: update_cache=yes
