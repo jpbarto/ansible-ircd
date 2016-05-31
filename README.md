@@ -43,6 +43,15 @@ ircd_network_desc: Server intern
 
 # A string containing a description of, geographically, where the server resides, eg 'San Francisco, California, USA'
 ircd_geo_location: Earth
+
+# Max client allow to connect 
+ircd_max_client: 512
+
+# Logs option : Either: * L_CRIT, L_ERROR, L_WARN, L_NOTICE, L_TRACE, L_INFO or L_DEBUG
+irc_log_level: L_INFO
+
+# Host for IRC
+ircd_host: 192.168.1.0
 ```
 
 Dependencies
